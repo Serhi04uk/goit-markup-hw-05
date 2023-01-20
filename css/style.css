@@ -10,6 +10,8 @@
   --accent-color-upgrade-seven: #2e2f42;
 
   --card-set-gap: 24px;
+
+  --transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* NONE! */
@@ -147,6 +149,7 @@ button {
   font-weight: 500;
   line-height: 1.5;
   color: var(--accent-color-upgrade-seven);
+  transition: color var(--transition);
 }
 
 .menu-link:hover,
@@ -168,6 +171,7 @@ button {
   line-height: 1.5;
   color: var(--accent-color-upgrade-two);
   margin-right: 40px;
+  transition: color var(--transition);
 }
 
 .contact-phone-number {
@@ -175,6 +179,7 @@ button {
   font-weight: 400;
   line-height: 1.5;
   color: var(--accent-color-upgrade-two);
+  transition: color var(--transition);
 }
 
 .contact-mail:hover,
@@ -209,6 +214,7 @@ button {
   padding: 16px 32px 16px 32px;
   border-radius: 4px;
   border: 1px solid var(--accent-color-upgrade-six);
+  transition: background-color var(--transition);
 }
 
 .modal-button:hover,
@@ -374,6 +380,9 @@ button {
   letter-spacing: 0.04em;
   color: var(--accent-color-upgrade-three);
   background: var(--accent-color-upgrade);
+  transition: background-color var(--transition),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .btn:hover,
@@ -406,6 +415,12 @@ button {
 
 .portfolio-item {
   display: block;
+  transition: box-shadow var(--transition);
+}
+
+.portfolio-item:hover .overlay,
+.portfolio-item:focus .overlay {
+  transform: translate(0, 0);
 }
 
 .portfolio-item:hover {
@@ -489,6 +504,7 @@ button {
   height: 44px;
   border-radius: 50%;
   background-color: #4d5ae5;
+  transition: background-color var(--transition);
 }
 
 .social-list-link:hover {
@@ -514,6 +530,7 @@ button {
   height: 44px;
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.1);
+  transition: background-color var(--transition);
 }
 
 .social-footer-link:hover {
@@ -538,6 +555,7 @@ button {
   align-items: center;
   width: 168px;
   height: 88px;
+  transition: border var(--transition), fill var(--transition);
 }
 
 .section-four:hover {
@@ -550,10 +568,6 @@ button {
 
 .section-four:hover .section-four-icon {
   fill: #404bbf;
-}
-
-.svg-color-hover:hover {
-  color: #404bbf;
 }
 
 .section-four-list {
@@ -576,3 +590,90 @@ button {
   height: 112px;
   margin-bottom: 8px;
 }
+
+.overlay-img {
+  position: relative;
+  overflow: hidden;
+}
+
+.overlay {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.02em;
+  color: #f4f4fd;
+  width: 100%;
+  height: 100%;
+  padding: 40px 32px 164px 32px;
+  background: #4d5ae5;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translate(0, 100%);
+  transition: transform 250ms linear;
+}
+
+/* Modal Window */
+
+.backdrop {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(46, 47, 66, 0.4);
+
+  transition: opacity var(--transition), visibility var(--transition);
+}
+
+.backdrop.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 408px;
+  height: 576px;
+  background: #fcfcfc;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #e7e9fc;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 0;
+  transition: background-color var(--transition);
+}
+
+.modal-close-btn:hover,
+.modal-close-btn:focus {
+  background: #404bbf;
+  border-radius: 50%;
+}
+
+.modal-close-btn-icon {
+  transition: fill var(--transition);
+}
+
+.modal-close-btn:hover .modal-close-btn-icon,
+.modal-close-btn:focus .modal-close-btn-icon {
+  fill: #ffffff;
+}
+/* Modal Window */

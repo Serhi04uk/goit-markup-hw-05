@@ -57,7 +57,11 @@
         <div class="conteiner main-hero">
           <h1 class="main-title-two">Effective Solutions for Your Business</h1>
 
-          <button class="modal-button button-hero" type="button">
+          <button
+            class="modal-button button-hero"
+            type="button"
+            data-modal-open
+          >
             Order Service
           </button>
         </div>
@@ -451,7 +455,6 @@
               <a href="" class="social-footer-link">
                 <svg class="social-footer-icon" Width="24" Height="24">
                   <use
-                    class="svg-color-hover"
                     href="./Images/icons/symbol-defs.svg#icon-linkedin-1"
                   ></use>
                 </svg>
@@ -460,6 +463,18 @@
           </ul>
         </div>
       </div>
+      <div class="backdrop is-hidden" data-modal>
+        <div class="modal">
+          <button type="button" class="modal-close-btn" data-modal-close>
+            <svg class="modal-close-btn-icon" Width="8px" Height="8px">
+              <use
+                href="./Images/icons/symbol-defs.svg#icon-close-black-18dp-2-1"
+              ></use>
+            </svg>
+          </button>
+        </div>
+      </div>
     </footer>
+    <script src="./js/modal.js"></script>
   </body>
 </html>
